@@ -48,9 +48,7 @@ package org.usfirst.frc.team339.HardwareInterfaces.transmission;
  *          -------------------------------------------------------
  */
 import java.util.Vector;
-import org.usfirst.frc.team339.Hardware.Hardware;
 import org.usfirst.frc.team339.HardwareInterfaces.PIDVelocityController;
-import org.usfirst.frc.team339.Utils.ErrorMessage.PrintsTo;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Relay;

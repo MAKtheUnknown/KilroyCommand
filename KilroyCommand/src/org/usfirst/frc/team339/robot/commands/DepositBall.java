@@ -3,7 +3,7 @@ package org.usfirst.frc.team339.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *	Moves arm up and puts the ball into the catapult.
  */
 public class DepositBall extends CommandGroup
 {

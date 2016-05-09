@@ -4,7 +4,7 @@ import org.usfirst.frc.team339.robotmap.Subsystems;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *	Puts arm in a given position at a given speed.
  */
 public class PositionArm extends Command
 {
@@ -15,8 +15,7 @@ private double speed;
 
 public PositionArm (double position, double speed)
 {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+
     requires(Subsystems.intakeArm);
 
     this.targetPosition = position;

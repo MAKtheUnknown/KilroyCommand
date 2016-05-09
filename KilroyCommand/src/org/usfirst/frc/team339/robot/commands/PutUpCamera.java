@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *	Opens the camera solenoid, and waits for it to go up.
+ *	If already up, the timer is skipped.
  */
 public class PutUpCamera extends Command {
 

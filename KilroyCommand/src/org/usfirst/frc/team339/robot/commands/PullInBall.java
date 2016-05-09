@@ -4,7 +4,7 @@ import org.usfirst.frc.team339.robotmap.Subsystems;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *	Takes ball into the arm.
  */
 public class PullInBall extends Command
 {

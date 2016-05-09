@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 
 /**
- *
+ *	Drives a given distance with primitive correction. 
  */
 public class DriveStraightDistance extends Command {
 

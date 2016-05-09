@@ -3,7 +3,7 @@ package org.usfirst.frc.team339.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *	Moves the robot within shooting range of the detected goal.
  */
 public class ApproachByCamera extends Command {
 

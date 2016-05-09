@@ -5,7 +5,7 @@ import org.usfirst.frc.team339.robotmap.Subsystems;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *	Turns, following the path of a given circle.
  */
 public class TurnAngleInCircle extends Command {
 

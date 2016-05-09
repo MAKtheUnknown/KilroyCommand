@@ -3,7 +3,7 @@ package org.usfirst.frc.team339.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *	Fires, but makes sure ball is in and arm is out of the way.
  */
 public class Shoot extends CommandGroup
 {

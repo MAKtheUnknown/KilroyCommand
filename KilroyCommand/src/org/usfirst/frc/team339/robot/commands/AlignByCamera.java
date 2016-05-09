@@ -3,7 +3,7 @@ package org.usfirst.frc.team339.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *	Adjusts the yaw of the robot such that it is aimed at the detected goal.
  */
 public class AlignByCamera extends Command {
 
