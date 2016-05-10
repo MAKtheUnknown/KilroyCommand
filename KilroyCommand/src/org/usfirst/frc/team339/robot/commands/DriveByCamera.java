@@ -6,11 +6,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *	Puts up the camera for vision processing,
  *	Aligns on the goal,
  *	Approaches the goal,
- *	Aligns again,
- *	Shoots.
+ *	Aligns again.
  */
 public class DriveByCamera extends CommandGroup {
     
+	/**
+	 *	Puts up the camera for vision processing,
+	 *	Aligns on the goal,
+	 *	Approaches the goal,
+	 *	Aligns again.
+	 */
     public  DriveByCamera() 
     {
     	addSequential(new PutUpCamera());
@@ -18,4 +23,5 @@ public class DriveByCamera extends CommandGroup {
         addSequential(new ApproachByCamera());
         addSequential(new AlignByCamera());
     }
+    
 }

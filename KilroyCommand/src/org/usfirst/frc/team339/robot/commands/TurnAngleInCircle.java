@@ -23,6 +23,15 @@ public class TurnAngleInCircle extends Command {
 	private double insideBaseMotorRatio;
 	private double outsideBaseMotorRatio;
 	
+	/**
+	 * 
+	 * Turns a given angle about a circle with a given radius at a given speed.
+	 * 
+	 * @param angle to turn about the center
+	 * @param radius of the circle
+	 * @param baseMotorRatio to be the speed of the faster wheel
+	 * @param turnRight false if turning left
+	 */
     public TurnAngleInCircle(double angle, double radius, double baseMotorRatio, boolean turnRight)
     {
         requires(Subsystems.transmission);

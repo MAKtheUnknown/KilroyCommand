@@ -15,7 +15,12 @@ public class DriveStraightDistance extends Command {
 	private double distance;
 	private double motorRatio;
 	
-	
+	/**
+	 * Drives a given distance with correction at a given speed.
+	 * 
+	 * @param distance
+	 * @param motorRatio
+	 */
     public DriveStraightDistance(double distance, double motorRatio) 
     {
         requires(Subsystems.transmission);
@@ -28,6 +33,8 @@ public class DriveStraightDistance extends Command {
     // Called just before this Command runs the first time
     protected void initialize() 
     {
+    	//We drive a certain distance from the starting point.
+    	//Start at Zero.
     	Subsystems.encoders.resetAll();
     }
 
@@ -37,29 +44,41 @@ public class DriveStraightDistance extends Command {
     	double leftSpeed = this.motorRatio;
     	double rightSpeed = this.motorRatio;
     	
+    	
     	if(Subsystems.encoders.getLeftDistance() > Subsystems.encoders.getRightDistance())
+    	//the left is ahead of the right.
     	{
     		if(this.motorRatio > 0)
+    		//we are going forwards
     		{
+    			//slow down the left;
     			leftSpeed *= correctionFactor;
     		}
     		else if(this.motorRatio < 0)
+    		//we are going backwards. The right is the one going too fast.
     		{
+    			//slow down the right.
     			rightSpeed *= correctionFactor;
     		}
     	}
     	else if(Subsystems.encoders.getRightDistance() > Subsystems.encoders.getLeftDistance())
+    	//the right is ahead of the left.
     	{
     		if(this.motorRatio > 0)
+    		//we are going forwards.
     		{
+    			//slow down the right.
     			rightSpeed *= correctionFactor;
     		}
     		else if(this.motorRatio < 0)
+    		//we are going backwards. The left is the one going too fast.
     		{
+    			//slow down the left.
     			leftSpeed *= correctionFactor;
     		}
     	}
     	
+    	//drive with these new speeds.
     	Subsystems.transmission.drive(rightSpeed, leftSpeed);
     }
 
@@ -67,6 +86,7 @@ public class DriveStraightDistance extends Command {
     protected boolean isFinished() 
     {
     	if(Subsystems.encoders.getAdverageDistance() >= this.distance)
+    	//We have reached the required distance.
     	{
     		return true;
     	}
@@ -77,6 +97,7 @@ public class DriveStraightDistance extends Command {
     // Called once after isFinished returns true
     protected void end() 
     {
+    	//in case other commands want to use them.
     	Subsystems.encoders.resetAll();
     }
 

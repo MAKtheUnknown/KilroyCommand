@@ -33,8 +33,10 @@ public void move (double speed)
 }
 
 
-
-// HELLO THERE!!!
+/**
+ * 
+ * @return angle of the arm.
+ */
 public double getPosition ()
 {
     return angleSensor.get();

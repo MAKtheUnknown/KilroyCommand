@@ -7,6 +7,9 @@ import org.usfirst.frc.team339.HardwareInterfaces.RobotPotentiometer;
 import org.usfirst.frc.team339.HardwareInterfaces.SingleThrowSwitch;
 import org.usfirst.frc.team339.HardwareInterfaces.SixPositionSwitch;
 import org.usfirst.frc.team339.HardwareInterfaces.UltraSonic;
+import org.usfirst.frc.team339.Utils.ImageProcessing;
+import org.usfirst.frc.team339.Vision.ImageProcessor;
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -163,6 +166,8 @@ public static UltraSonic ultrasonic = new UltraSonic(4,
  * Cameras
  *-----------------------*/
 public static KilroyCamera axisCamera = new KilroyCamera(true);
+
+public static ImageProcessing goalVision = new ImageProcessing(axisCamera);
 
 /*------------------------
  * Driver Station
