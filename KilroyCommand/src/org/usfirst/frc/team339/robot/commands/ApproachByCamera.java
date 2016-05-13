@@ -25,6 +25,10 @@ public class ApproachByCamera extends Command {
     {
     	Subsystems.encoders.resetAll();
     	Subsystems.goalVision.processNewImage();
+    	
+    	//Send positive values to go forwards.
+    	Subsystems.transmission.setLeftJoystickReversed(true);
+    	Subsystems.transmission.setRightJoystickReversed(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -76,7 +80,11 @@ public class ApproachByCamera extends Command {
     }
 
     // Called once after isFinished returns true
-    protected void end() {
+    protected void end() 
+    {
+    	//return Driver control.
+    	Subsystems.transmission.setLeftJoystickReversed(false);
+    	Subsystems.transmission.setRightJoystickReversed(false);
     }
 
     // Called when another command which requires one or more of the same

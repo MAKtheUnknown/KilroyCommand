@@ -36,6 +36,10 @@ public class DriveStraightDistance extends Command {
     	//We drive a certain distance from the starting point.
     	//Start at Zero.
     	Subsystems.encoders.resetAll();
+    	
+    	//Send positive values to go forwards.
+    	Subsystems.transmission.setLeftJoystickReversed(true);
+    	Subsystems.transmission.setRightJoystickReversed(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -99,6 +103,10 @@ public class DriveStraightDistance extends Command {
     {
     	//in case other commands want to use them.
     	Subsystems.encoders.resetAll();
+    	
+    	//for regular driving.
+    	Subsystems.transmission.setLeftJoystickReversed(false);
+    	Subsystems.transmission.setRightJoystickReversed(false);
     }
 
     // Called when another command which requires one or more of the same

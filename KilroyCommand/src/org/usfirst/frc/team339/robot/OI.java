@@ -4,6 +4,7 @@ import org.usfirst.frc.team339.HardwareInterfaces.MomentarySwitch;
 import org.usfirst.frc.team339.robot.commands.AimAndShoot;
 import org.usfirst.frc.team339.robot.commands.AlignAndShoot;
 import org.usfirst.frc.team339.robot.commands.AlignByCamera;
+import org.usfirst.frc.team339.robot.commands.FireCatapult;
 import org.usfirst.frc.team339.robot.commands.Shoot;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -36,11 +37,13 @@ public static Button generalCancel = new JoystickButton(leftOperator, 3);
 		Shoot shot = new Shoot();
 		AlignAndShoot alignFire = new AlignAndShoot(); 
 		AimAndShoot aimedShot= new AimAndShoot();
+		FireCatapult fireOverride = new FireCatapult();
 		
 		align.whenPressed(cameraAlign);
 		fireNormal.whenPressed(shot);
 		alignAndFire.whenPressed(alignFire);
 		driveAndFire.whenPressed(aimedShot);
+		
 		
 		generalCancel.cancelWhenPressed(cameraAlign);
 		generalCancel.cancelWhenPressed(shot);

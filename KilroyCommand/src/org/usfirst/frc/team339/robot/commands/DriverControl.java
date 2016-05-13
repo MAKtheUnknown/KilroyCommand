@@ -1,5 +1,6 @@
 package org.usfirst.frc.team339.robot.commands;
 
+import org.usfirst.frc.team339.Hardware.Hardware;
 import org.usfirst.frc.team339.robot.OI;
 import org.usfirst.frc.team339.robotmap.Subsystems;
 
@@ -11,7 +12,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriverControl extends Command {
 
-    public DriverControl() 
+
+
+	public DriverControl() 
     {    
     	requires(Subsystems.transmission);
     }
@@ -27,7 +30,18 @@ public class DriverControl extends Command {
     protected void execute() 
     {
     	Subsystems.transmission.drive(OI.rightDriver.getY(), OI.leftDriver.getY());
-    	
+		// If we're pressing the upshift button, shift up.
+		if (OI.rightDriver
+		        .getRawButton(GEAR_UPSHIFT_JOYSTICK_BUTTON) == true)
+		{
+			Subsystems.transmission.upshift();
+		}
+		// If we press the downshift button, shift down.
+		if (OI.rightDriver
+		        .getRawButton(GEAR_DOWNSHIFT_JOYSTICK_BUTTON) == true)
+		{
+			Subsystems.transmission.downshift();
+		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -43,4 +57,7 @@ public class DriverControl extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
+    private static final int GEAR_UPSHIFT_JOYSTICK_BUTTON = 3;
+	private static final int GEAR_DOWNSHIFT_JOYSTICK_BUTTON = 2;
 }
