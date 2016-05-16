@@ -13,8 +13,11 @@ public class Autonomous extends CommandGroup {
     	//Drive to the edge of the Outer Works.
         addSequential(new DriveStraightDistance(DriveInformation.DISTANCE_TO_OUTER_WORKS, DriveInformation.MOTOR_RATIO_TO_OUTER_WORKS[lane]));
         
-        //Waits for the arm to be low enough to get under the low bar.
-        addSequential(new WaitUntilArmIsDown());
+        if(lane == 1 || lane == 6)
+        {
+        	//Waits for the arm to be low enough to get under the low bar.
+        	addSequential(new WaitUntilArmIsDown());
+        }
         
         //Drive over the Outer Works.
         addSequential(new DriveStraightDistance(DriveInformation.DISTANCE_OVER_OUTER_WORKS, DriveInformation.DRIVE_OVER_OUTER_WORKS_MOTOR_RATIOS[lane]));

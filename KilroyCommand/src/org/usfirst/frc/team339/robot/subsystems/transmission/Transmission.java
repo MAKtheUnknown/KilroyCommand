@@ -1,6 +1,8 @@
-package org.usfirst.frc.team339.HardwareInterfaces.transmission;
+package org.usfirst.frc.team339.robot.subsystems.transmission;
 
 import org.usfirst.frc.team339.HardwareInterfaces.DoubleSolenoid;
+import org.usfirst.frc.team339.robot.commands.StopWheelMotors;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -428,8 +430,7 @@ public MotorDirection getRightMotorDirection ()
 @Override
 public void initDefaultCommand ()
 {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    this.setDefaultCommand(new StopWheelMotors());
 }
 
 /**

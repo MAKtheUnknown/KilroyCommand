@@ -14,9 +14,11 @@ public class DriverControl extends Command {
 
 
 
+	
 	public DriverControl() 
     {    
     	requires(Subsystems.transmission);
+    	requires(Subsystems.intakeArm);
     }
 
     // Called just before this Command runs the first time
@@ -29,7 +31,11 @@ public class DriverControl extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
+    	boolean armOverride = false;
+    	
+    	
     	Subsystems.transmission.drive(OI.rightDriver.getY(), OI.leftDriver.getY());
+    	
 		// If we're pressing the upshift button, shift up.
 		if (OI.rightDriver
 		        .getRawButton(GEAR_UPSHIFT_JOYSTICK_BUTTON) == true)
@@ -42,6 +48,14 @@ public class DriverControl extends Command {
 		{
 			Subsystems.transmission.downshift();
 		}
+		
+		// Use override while override button is pressed.
+		if(OI.rightOperator.getRawButton(ARM_OVERRIDE_BUTTON) == true)
+		{
+			armOverride = true;
+		}
+		//manually move the arm.
+    	Subsystems.intakeArm.moveReasonably((int)OI.rightOperator.getY(), armOverride);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -60,4 +74,5 @@ public class DriverControl extends Command {
     
     private static final int GEAR_UPSHIFT_JOYSTICK_BUTTON = 3;
 	private static final int GEAR_DOWNSHIFT_JOYSTICK_BUTTON = 2;
+	private static final int ARM_OVERRIDE_BUTTON = 4;
 }

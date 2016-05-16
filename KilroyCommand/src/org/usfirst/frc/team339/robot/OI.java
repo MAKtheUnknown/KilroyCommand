@@ -6,6 +6,7 @@ import org.usfirst.frc.team339.robot.commands.AlignAndShoot;
 import org.usfirst.frc.team339.robot.commands.AlignByCamera;
 import org.usfirst.frc.team339.robot.commands.FireCatapult;
 import org.usfirst.frc.team339.robot.commands.Shoot;
+import org.usfirst.frc.team339.robot.triggers.ButtonCombination;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -27,8 +28,10 @@ public static Button align = new JoystickButton(leftOperator, 5);
 public static Button fireNormal = new JoystickButton(leftOperator, 1);
 public static Button alignAndFire = new JoystickButton(rightOperator,1);
 public static Button driveAndFire = new JoystickButton(leftOperator, 8);
-
 public static Button generalCancel = new JoystickButton(leftOperator, 3);
+
+private static Button[] fireOverrideCombo = {fireNormal, generalCancel};
+public static ButtonCombination fireWithOverride = new ButtonCombination(fireOverrideCombo);
 
 
 	public OI()
@@ -37,12 +40,14 @@ public static Button generalCancel = new JoystickButton(leftOperator, 3);
 		Shoot shot = new Shoot();
 		AlignAndShoot alignFire = new AlignAndShoot(); 
 		AimAndShoot aimedShot= new AimAndShoot();
-		FireCatapult fireOverride = new FireCatapult();
+		FireCatapult fireWithoutSafety = new FireCatapult();
 		
 		align.whenPressed(cameraAlign);
 		fireNormal.whenPressed(shot);
+		
 		alignAndFire.whenPressed(alignFire);
 		driveAndFire.whenPressed(aimedShot);
+		fireWithOverride.whenActive(fireWithoutSafety);
 		
 		
 		generalCancel.cancelWhenPressed(cameraAlign);

@@ -11,10 +11,9 @@ public class Shoot extends CommandGroup
 public Shoot ()
 {
 
-
     addSequential(new DepositBall());
     addSequential(new PositionArm(ARM_OUT_OF_WAY, VACATE_SPEED));
-    addSequential(new Shoot());
+    addSequential(new FireCatapult());
 
 }
 

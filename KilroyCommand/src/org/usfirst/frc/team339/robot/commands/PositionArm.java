@@ -30,10 +30,13 @@ protected void initialize ()
 // Called repeatedly when this Command is scheduled to run
 protected void execute ()
 {
+	//find if the arm is above or below the target position.
+	//sign will be -1 if above, +1 if below.
     double sign =
             (targetPosition - Subsystems.intakeArm.getPosition()) / Math.abs(
                     (targetPosition - Subsystems.intakeArm.getPosition()));
-    Subsystems.intakeArm.move(speed * sign);
+    //Move arm in opposite direction, towards the target
+    Subsystems.intakeArm.move(- speed * sign);
 }
 
 // Make this return true when this Command no longer needs to run execute()

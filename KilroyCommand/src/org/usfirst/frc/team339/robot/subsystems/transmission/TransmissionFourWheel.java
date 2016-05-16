@@ -1,4 +1,4 @@
-package org.usfirst.frc.team339.HardwareInterfaces.transmission;
+package org.usfirst.frc.team339.robot.subsystems.transmission;
 
 import edu.wpi.first.wpilibj.SpeedController;
 

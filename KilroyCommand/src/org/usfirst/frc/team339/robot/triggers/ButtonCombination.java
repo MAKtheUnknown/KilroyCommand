@@ -1,24 +1,25 @@
 package org.usfirst.frc.team339.robot.triggers;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
  *
  */
-public class JoystickButtonCombination extends Trigger {
+public class ButtonCombination extends Trigger {
     
-	JoystickButton[] combination;
+	Button[] combination;
 	
-	public JoystickButtonCombination(JoystickButton[] combination)
+	public ButtonCombination(Button[] fireOverrideCombo)
 	{
-		this.combination = combination;
+		this.combination = fireOverrideCombo;
 	}
 	
     public boolean get() 
     {
-    	for(JoystickButton j : combination)
+    	for(Button j : combination)
     	{
     		if(j.get() == false)
     		{

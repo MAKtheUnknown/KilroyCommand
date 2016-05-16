@@ -1,5 +1,5 @@
 
-package org.usfirst.frc.team339.HardwareInterfaces.transmission;
+package org.usfirst.frc.team339.robot.subsystems.transmission;
 
 /**
  * sets the percentage of the joysticks range for the

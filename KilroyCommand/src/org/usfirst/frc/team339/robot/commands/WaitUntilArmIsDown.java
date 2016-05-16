@@ -1,5 +1,6 @@
 package org.usfirst.frc.team339.robot.commands;
 
+import org.usfirst.frc.team339.robot.subsystems.ManipulatorArm;
 import org.usfirst.frc.team339.robotmap.Subsystems;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,8 +12,6 @@ public class WaitUntilArmIsDown extends Command {
 
     public WaitUntilArmIsDown() 
     {
-        requires(Subsystems.intakeArm);
-        requires(Subsystems.transmission);
     }
 
     // Called just before this Command runs the first time
@@ -24,13 +23,12 @@ public class WaitUntilArmIsDown extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
-    	Subsystems.transmission.drive(0.0, 0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() 
     {
-    	if(Subsystems.intakeArm.getPosition() <= Subsystems.intakeArm.MIN + 4.0)
+    	if(Subsystems.intakeArm.getPosition() <= ManipulatorArm.MIN_SOFT_ARM_STOP + WaitUntilArmIsDown.ARM_DOWN_THRESHOLD)
     	{
     		return true;
     	}
@@ -45,4 +43,6 @@ public class WaitUntilArmIsDown extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
+    private static final double ARM_DOWN_THRESHOLD = 3.0;
 }

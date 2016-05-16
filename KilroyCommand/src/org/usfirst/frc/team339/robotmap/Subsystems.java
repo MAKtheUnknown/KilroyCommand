@@ -1,12 +1,13 @@
 package org.usfirst.frc.team339.robotmap;
 
-import org.usfirst.frc.team339.HardwareInterfaces.transmission.TransmissionFourWheel;
 import org.usfirst.frc.team339.robot.subsystems.Arm;
 import org.usfirst.frc.team339.robot.subsystems.CameraProp;
 import org.usfirst.frc.team339.robot.subsystems.Catapult;
 import org.usfirst.frc.team339.robot.subsystems.GoalVision;
 import org.usfirst.frc.team339.robot.subsystems.Intake;
+import org.usfirst.frc.team339.robot.subsystems.ManipulatorArm;
 import org.usfirst.frc.team339.robot.subsystems.WheelEncoders;
+import org.usfirst.frc.team339.robot.subsystems.transmission.TransmissionFourWheel;
 
 public class Subsystems
 {
@@ -19,14 +20,7 @@ public class Subsystems
 	/**
 	 * The swinging arm with the ball intake mechanism.
 	 */
-	public static Arm intakeArm =
-        new Arm(Hardware.armMotor, Hardware.armPot);
-	
-	/**
-	 * The ball intake mechanism on the arm.
-	 */
-	public static Intake ballIntake =
-        new Intake(Hardware.armIntakeMotor, Hardware.armIR);
+	public static ManipulatorArm intakeArm = new ManipulatorArm(Hardware.armMotor, Hardware.armIntakeMotor, Hardware.armPot, Hardware.armIR);
 	
 	/**
 	 * The driving mechanism.
