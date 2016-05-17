@@ -4,14 +4,9 @@ package org.usfirst.frc.team339.robot;
 import org.usfirst.frc.team339.robot.commands.Autonomous;
 import org.usfirst.frc.team339.robot.commands.DriverControl;
 import org.usfirst.frc.team339.robotmap.Hardware;
-import org.usfirst.frc.team339.robotmap.Subsystems;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -49,7 +44,7 @@ public void disabledInit ()
 
 public void disabledPeriodic ()
 {
-    Scheduler.getInstance().run();
+    //Scheduler.getInstance().run();
 }
 
 /**
@@ -58,9 +53,9 @@ public void disabledPeriodic ()
  */
 public void autonomousInit ()
 {
-	int lane = Hardware.startingPositionDial.getPosition() + 1;
-	this.autonomous = new Autonomous(lane);
-	this.autonomous.start();
+    int lane = Hardware.startingPositionDial.getPosition() + 1;
+    this.autonomous = new Autonomous(lane);
+    this.autonomous.start();
 }
 
 /**
@@ -78,12 +73,12 @@ public void teleopInit ()
     // continue until interrupted by another command, remove
     // this line or comment it out.
     if (autonomous != null)
-    {
+        {
         autonomous.cancel();
-    }
+        }
     teleop = new DriverControl();
     teleop.start();
-    
+
 }
 
 /**

@@ -1,12 +1,7 @@
 package org.usfirst.frc.team339.Utils;
 
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import com.sun.glass.ui.Robot;
-import org.usfirst.frc.team339.Hardware.Hardware;
-import org.usfirst.frc.team339.HardwareInterfaces.CANNetwork;
 import org.usfirst.frc.team339.HardwareInterfaces.CANObject;
-import org.usfirst.frc.team339.robot.*;
 
 /**
  * NOTE: THIS CODE IS NOT COMPLETE! THERE ARE STILL ERRORS
@@ -34,10 +29,10 @@ private void DebugCANUtils ()
     //If true, runs DebugCANUtils
 
     if (useDebug == true)
-    {
+        {
         //TODO print variables
         //System.out.println("The value of the testForFaults method is " + future Variables);
-    }
+        }
 }
 
 
@@ -49,31 +44,31 @@ public void testForFaults ()
 {
     CANObject tempCANObject = null;
     //commented out becasue Hardware.canNetwork no longer exists
-//    for (int i = 0; i < Hardware.canNetwork.canObjects.size(); i++)
-//    {
-//
-//        //creates a new temporary CANObject to search for faults
-//        tempCANObject =
-//                Hardware.canNetwork.canObjects.get(i);
-//
-//        //Debug stuff in for loop
-//        if (useDebug == true)
-//        {
-//            System.out.println(
-//                    "The value of tempCANObject.getfault is "
-//                            + tempCANObject.getFault());
-//        }
-//
-//
-//        if (tempCANObject.getFault() == true)
-//        {
-//            //there is a sticky fault
-//            SmartDashboard.putBoolean("Sticky Fault", true);
-//        }
-//
-//        //there is not a sticky fault
-//        SmartDashboard.putBoolean("Sticky Fault", false);
-//
-//    }
+    //    for (int i = 0; i < Hardware.canNetwork.canObjects.size(); i++)
+    //    {
+    //
+    //        //creates a new temporary CANObject to search for faults
+    //        tempCANObject =
+    //                Hardware.canNetwork.canObjects.get(i);
+    //
+    //        //Debug stuff in for loop
+    //        if (useDebug == true)
+    //        {
+    //            System.out.println(
+    //                    "The value of tempCANObject.getfault is "
+    //                            + tempCANObject.getFault());
+    //        }
+    //
+    //
+    //        if (tempCANObject.getFault() == true)
+    //        {
+    //            //there is a sticky fault
+    //            SmartDashboard.putBoolean("Sticky Fault", true);
+    //        }
+    //
+    //        //there is not a sticky fault
+    //        SmartDashboard.putBoolean("Sticky Fault", false);
+    //
+    //    }
 }
 }
