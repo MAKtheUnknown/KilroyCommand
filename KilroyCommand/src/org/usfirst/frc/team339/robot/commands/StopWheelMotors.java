@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class StopWheelMotors extends Command {
 
+	/**
+	 * Do not move at this time.
+	 */
     public StopWheelMotors() 
     {
         requires(Subsystems.transmission);

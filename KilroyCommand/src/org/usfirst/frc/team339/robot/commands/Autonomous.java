@@ -3,10 +3,21 @@ package org.usfirst.frc.team339.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *	Drives several set distances that will guide the robot over the Outer works and close to the tower.
+ * Vision processing will correct for any mistakes.
+ * Takes a high goal shot at the end.
+ * 
+ * @author Michael Andrzej Klaczynski
  */
 public class Autonomous extends CommandGroup {
     
+	/**
+	 * Given a lane, will drive several set distances that will guide the robot over the Outer works and close to the tower.
+	 * Vision processing will correct for any mistakes.
+	 * Takes a high goal shot at the end.
+	 * 
+	 * @param lane is the section of Outer Works the robot is set up to go over.
+	 */
     public  Autonomous(int lane) 
     {
     	

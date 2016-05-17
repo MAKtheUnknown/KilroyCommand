@@ -7,7 +7,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *	then shoot.
  */
 public class AimAndShoot extends CommandGroup {
-    
+
+	/**
+	 *	Drive by camera to align on the goal,
+	 *	then shoot.
+	 */
     public  AimAndShoot() 
     {
     	
