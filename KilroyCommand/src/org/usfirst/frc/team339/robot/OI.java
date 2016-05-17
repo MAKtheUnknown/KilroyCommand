@@ -30,8 +30,7 @@ public static Button alignAndFire = new JoystickButton(rightOperator,1);
 public static Button driveAndFire = new JoystickButton(leftOperator, 8);
 public static Button generalCancel = new JoystickButton(leftOperator, 3);
 
-private static Button[] fireOverrideCombo = {fireNormal, generalCancel};
-public static ButtonCombination fireWithOverride = new ButtonCombination(fireOverrideCombo);
+public static ButtonCombination fireWithOverride = new ButtonCombination(new Button[]{fireNormal, generalCancel});
 
 
 	public OI()

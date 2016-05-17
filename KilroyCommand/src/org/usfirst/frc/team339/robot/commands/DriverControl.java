@@ -59,7 +59,8 @@ public class DriverControl extends Command {
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
+    protected boolean isFinished() 
+    {
         return false;
     }
 
