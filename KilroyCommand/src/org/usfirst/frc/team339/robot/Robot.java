@@ -39,7 +39,15 @@ public void robotInit ()
  */
 public void disabledInit ()
 {
-
+	if(autonomous!=null)
+	{
+		autonomous.cancel();
+	}
+	if(teleop!=null)
+	{
+		teleop.cancel();
+	}
+	
 }
 
 public void disabledPeriodic ()
