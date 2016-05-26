@@ -39,6 +39,14 @@ public class Robot extends IterativeRobot
 	 */
 	public void disabledInit ()
 	{
+		if (autonomous != null)
+		{
+			autonomous.cancel();
+		}
+		if (teleop != null)
+		{
+			teleop.cancel();
+		}
 
 	}
 
