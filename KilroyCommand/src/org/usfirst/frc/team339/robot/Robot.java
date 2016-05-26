@@ -4,6 +4,7 @@ package org.usfirst.frc.team339.robot;
 import org.usfirst.frc.team339.robot.commands.Autonomous;
 import org.usfirst.frc.team339.robot.commands.DriverControl;
 import org.usfirst.frc.team339.robotmap.Hardware;
+import org.usfirst.frc.team339.robotmap.Subsystems;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -84,6 +85,11 @@ public class Robot extends IterativeRobot
 		{
 			autonomous.cancel();
 		}
+
+		//Set the default command for the transmission to DriverControl,
+		//so that it will return to this whenever it is interrupted.
+		Subsystems.transmission.setCommandDefault(new DriverControl());
+
 		teleop = new DriverControl();
 		teleop.start();
 
