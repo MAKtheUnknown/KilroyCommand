@@ -1,5 +1,6 @@
 package org.usfirst.frc.team339.robot.subsystems;
 
+import org.usfirst.frc.team339.robot.commands.CatapultDefaultCommand;
 import org.usfirst.frc.team339.robotmap.Hardware;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -9,8 +10,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Catapult extends Subsystem
 {
 
-	// Put methods for controlling this subsystem
-	// here. Call these from Commands.
+	/**
+	 * Fire the Catapult.
+	 */
 	public void fire ()
 	{
 		//RELEASE THE KRACKEN! I mean, the pressurised air...
@@ -19,6 +21,9 @@ public class Catapult extends Subsystem
 		Hardware.catapultSolenoid2.set(true);
 	}
 
+	/**
+	 * Allow the Catapult to lower.
+	 */
 	public void lower ()
 	{
 		Hardware.catapultSolenoid0.set(false);
@@ -29,7 +34,7 @@ public class Catapult extends Subsystem
 	public void initDefaultCommand ()
 	{
 		// Set the default command for a subsystem here.
-		//setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new CatapultDefaultCommand());
 	}
 }
 

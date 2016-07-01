@@ -57,7 +57,7 @@ public class DriverControl extends Command
 		}
 		//manually move the arm.
 		Subsystems.intakeArm.moveReasonably(
-		        (int) OI.rightOperator.getY(),
+		        (int) -OI.rightOperator.getY(),
 		        armOverride);
 	}
 

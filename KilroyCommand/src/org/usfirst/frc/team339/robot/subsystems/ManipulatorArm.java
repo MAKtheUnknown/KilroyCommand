@@ -3,7 +3,6 @@ package org.usfirst.frc.team339.robot.subsystems;
 import org.usfirst.frc.team339.HardwareInterfaces.IRSensor;
 import org.usfirst.frc.team339.HardwareInterfaces.RobotPotentiometer;
 import org.usfirst.frc.team339.robot.commands.HoldArmInPlace;
-
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -57,34 +56,40 @@ public class ManipulatorArm extends Subsystem
 	public void moveReasonably (int direction, boolean override)
 	{
 		direction *= -1;
-		if (direction > 0)
-		//Going UP!
+		if (Math.abs(direction) > .15)
 		{
-			if (armPot.get() < REASONABLE_DECELERATION_ANGLE)
-			//Starting up, has to work hard.
+			if (direction > 0)
+			//Going UP!
 			{
-				move(REASONABLE_UP_FACTOR, override);
+				if (armPot.get() < REASONABLE_DECELERATION_ANGLE)
+				//Starting up, has to work hard.
+				{
+					move(REASONABLE_UP_FACTOR, override);
+				}
+				else
+				//We are over the hump, slow down.
+				{
+					move(REASONABLE_UP_AND_OVER_FACTOR, override);
+				}
 			}
 			else
-			//We are over the hump, slow down.
+			//going down.
 			{
-				move(REASONABLE_UP_AND_OVER_FACTOR, override);
+				if (armPot.get() > REASONABLE_DECELERATION_ANGLE)
+				{
+					move(REASONABLE_DOWN_FACTOR, override);
+				}
+				else
+				//now gravity is on our side. Slow down a bit.
+				{
+					move(REASONABLE_DOWN_UNDER_FACTOR, override);
+				}
 			}
 		}
 		else
-		//going down.
 		{
-			if (armPot.get() > REASONABLE_DECELERATION_ANGLE)
-			{
-				move(REASONABLE_DOWN_FACTOR, override);
-			}
-			else
-			//now gravity is on our side. Slow down a bit.
-			{
-				move(REASONABLE_DOWN_UNDER_FACTOR, override);
-			}
+			stopArmMotor();
 		}
-
 	}
 
 	/**
@@ -144,7 +149,7 @@ public class ManipulatorArm extends Subsystem
 	 */
 	public void pullInBall (boolean override)
 	{
-	
+
 		this.intakeMotor.set(-INTAKE_SPEED);
 
 	}
@@ -335,8 +340,8 @@ public class ManipulatorArm extends Subsystem
 
 		return done;
 	}
-	
-	public double getPosition()
+
+	public double getPosition ()
 	{
 		return this.armPot.get();
 	}
@@ -423,11 +428,11 @@ public class ManipulatorArm extends Subsystem
 	        MIN_SOFT_ARM_STOP + UNDER_BAR_THRESHOLD;
 
 	@Override
-	protected void initDefaultCommand()
+	protected void initDefaultCommand ()
 	{
 
 		this.setDefaultCommand(new HoldArmInPlace());
-		
+
 	}
 
 

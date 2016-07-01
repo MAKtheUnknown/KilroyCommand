@@ -4,66 +4,70 @@ import org.usfirst.frc.team339.robotmap.Subsystems;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *	Puts arm in a given position at a given speed.
+ * Puts arm in a given position at a given speed.
  */
 public class PositionArm extends Command
 {
 
 
-private double targetPosition;
-private double speed;
+	private double targetPosition;
+	private double speed;
 
-public PositionArm (double position, double speed)
-{
+	public PositionArm (double position, double speed)
+	{
 
-    requires(Subsystems.intakeArm);
+		requires(Subsystems.intakeArm);
 
-    this.targetPosition = position;
-    this.speed = speed;
-}
+		this.targetPosition = position;
+		this.speed = speed;
+	}
 
-// Called just before this Command runs the first time
-protected void initialize ()
-{
-}
+	// Called just before this Command runs the first time
+	protected void initialize ()
+	{
+	}
 
-// Called repeatedly when this Command is scheduled to run
-protected void execute ()
-{
-	//find if the arm is above or below the target position.
-	//sign will be -1 if above, +1 if below.
-    double sign =
-            (targetPosition - Subsystems.intakeArm.getPosition()) / Math.abs(
-                    (targetPosition - Subsystems.intakeArm.getPosition()));
-    //Move arm in opposite direction, towards the target
-    Subsystems.intakeArm.move(- speed * sign);
-}
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute ()
+	{
+		//find if the arm is above or below the target position.
+		//sign will be -1 if above, +1 if below.
+		double sign =
+		        (targetPosition - Subsystems.intakeArm.getPosition())
+		                / Math.abs(
+		                        (targetPosition - Subsystems.intakeArm
+		                                .getPosition()));
+		//Move arm in opposite direction, towards the target
+		Subsystems.intakeArm.move(-speed * sign);
 
-// Make this return true when this Command no longer needs to run execute()
-protected boolean isFinished ()
-{
-    if (Subsystems.intakeArm.getPosition() > targetPosition
-            - SET_ANGLE_THRESHOLD
-            && Subsystems.intakeArm.getPosition() < targetPosition
-                    + SET_ANGLE_THRESHOLD)
-        {
-        return true;
-        }
-    return false;
-}
+		System.out.println(Subsystems.intakeArm.getPosition());
+	}
 
-// Called once after isFinished returns true
-protected void end ()
-{
-    Subsystems.intakeArm.move(0.0);
-}
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished ()
+	{
+		if (Subsystems.intakeArm.getPosition() > targetPosition
+		        - SET_ANGLE_THRESHOLD
+		        && Subsystems.intakeArm.getPosition() < targetPosition
+		                + SET_ANGLE_THRESHOLD)
+		{
+			return true;
+		}
+		return false;
+	}
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-protected void interrupted ()
-{
-}
+	// Called once after isFinished returns true
+	protected void end ()
+	{
+		Subsystems.intakeArm.move(0.0);
+	}
 
-public final double SET_ANGLE_THRESHOLD = 5.0;
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted ()
+	{
+	}
+
+	public final double SET_ANGLE_THRESHOLD = 5.0;
 
 }
