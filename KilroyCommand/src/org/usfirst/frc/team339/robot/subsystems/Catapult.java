@@ -5,7 +5,7 @@ import org.usfirst.frc.team339.robotmap.Hardware;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *	A system to raise and lower the Catapult.
  */
 public class Catapult extends Subsystem
 {

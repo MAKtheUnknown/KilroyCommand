@@ -35,7 +35,7 @@ public class FireCatapult extends Command
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished ()
 	{
-		if (startTime + STOP_TIME > System.currentTimeMillis())
+		if (startTime + STOP_TIME < System.currentTimeMillis())
 		{
 			return true;
 		}

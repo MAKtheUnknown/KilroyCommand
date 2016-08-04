@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.image.NIVisionException;
 import edu.wpi.first.wpilibj.vision.AxisCamera;
 
 /**
- *
+ *	A vision processing class specifically for locating the goal in the 2016 Stronghold game.
  */
 public class GoalVision extends Subsystem 
 {
@@ -36,6 +36,9 @@ public class GoalVision extends Subsystem
     	
     }
     
+    /**
+     * Refresh the image we are processing
+     */
     public void processNewImage()
     {
     	//try to take a picture and save it in memory and on the "hard disk"
