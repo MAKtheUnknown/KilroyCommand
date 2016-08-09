@@ -4,26 +4,26 @@ import org.usfirst.frc.team339.robotmap.Subsystems;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *	Takes ball into the arm.
+ * Takes ball into the arm.
  */
 public class PullInBall extends Command
 {
 
-	private double timeOfEntry = 0.0;
-	private double timeAfterEntry = 0.0;
-	
+private double timeOfEntry = 0.0;
+private double timeAfterEntry = 0.0;
+
 public PullInBall ()
 {
     // Use requires() here to declare subsystem dependencies
     requires(Subsystems.intakeArm);
-    
+
     this.timeAfterEntry = this.DELAY_AFTER_BALL_DETECTION;
 }
 
 public PullInBall (double customTime)
 {
     requires(Subsystems.intakeArm);
-    
+
     this.timeAfterEntry = customTime;
 }
 
@@ -36,20 +36,21 @@ protected void initialize ()
 protected void execute ()
 {
     Subsystems.intakeArm.pullInBall(true);
-    
-    if(Subsystems.intakeArm.ballIsOut() == false)
-    {
-    	if(timeOfEntry == 0.0)
-    	{
-    		timeOfEntry = System.currentTimeMillis();
-    	}
-    }
+
+    if (Subsystems.intakeArm.ballIsOut() == false)
+        {
+        if (timeOfEntry == 0.0)
+            {
+            timeOfEntry = System.currentTimeMillis();
+            }
+        }
 }
 
 // Make this return true when this Command no longer needs to run execute()
 protected boolean isFinished ()
 {
-    if (System.currentTimeMillis() > this.timeOfEntry + this.timeAfterEntry)
+    if (System.currentTimeMillis() > this.timeOfEntry
+            + this.timeAfterEntry)
         {
         return true;
         }
@@ -69,6 +70,6 @@ protected void interrupted ()
 }
 
 
-private static final double DELAY_AFTER_BALL_DETECTION = 0.12;
+private final double DELAY_AFTER_BALL_DETECTION = 0.12;
 
 }
