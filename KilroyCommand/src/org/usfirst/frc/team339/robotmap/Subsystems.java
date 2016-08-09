@@ -18,17 +18,17 @@ public static Catapult catapult = new Catapult();
 /**
  * The swinging arm with the ball intake mechanism.
  */
-public static ManipulatorArm intakeArm =
-        new ManipulatorArm(Hardware.armMotor, Hardware.armIntakeMotor,
-                Hardware.armPot, Hardware.armIR);
+public static ManipulatorArm intakeArm = new ManipulatorArm(
+        Hardware.armMotor, Hardware.armIntakeMotor,
+        Hardware.armPot, Hardware.armIR);
 
 /**
  * The driving mechanism.
  */
-public static TransmissionFourWheel transmission =
-        new TransmissionFourWheel(Hardware.rightRearMotor,
-                Hardware.rightFrontMotor, Hardware.leftRearMotor,
-                Hardware.leftFrontMotor);;
+public static TransmissionFourWheel transmission = new TransmissionFourWheel(
+        Hardware.rightFrontMotor,
+        Hardware.rightRearMotor, Hardware.leftFrontMotor,
+        Hardware.leftRearMotor);;
 
 /**
  * The set of encoders that give the wheel positions.
@@ -44,6 +44,6 @@ public static CameraProp cameraProp = new CameraProp();
 /**
  * The vision processing that detects the position of the goal.
  */
-public static GoalVision goalVision =
-        new GoalVision(Hardware.goalVision, Hardware.axisCamera);
+public static GoalVision goalVision = new GoalVision(
+        Hardware.goalVision, Hardware.axisCamera);
 }

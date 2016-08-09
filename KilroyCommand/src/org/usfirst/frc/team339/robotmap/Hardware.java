@@ -8,8 +8,6 @@ import org.usfirst.frc.team339.HardwareInterfaces.SingleThrowSwitch;
 import org.usfirst.frc.team339.HardwareInterfaces.SixPositionSwitch;
 import org.usfirst.frc.team339.HardwareInterfaces.UltraSonic;
 import org.usfirst.frc.team339.Utils.ImageProcessing;
-import org.usfirst.frc.team339.Vision.ImageProcessor;
-
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -52,8 +50,7 @@ public static final int MINIMUM_AXIS_CAMERA_BRIGHTNESS = 6;
 public static final int AXIS_FPS = 15;
 
 
-public static final Resolution AXIS_RESOLUTION =
-        AxisCamera.Resolution.k320x240;
+public static final Resolution AXIS_RESOLUTION = AxisCamera.Resolution.k320x240;
 
 public static final double ULTRASONIC_SCALING_FACTOR = 0.050548;
 
@@ -71,7 +68,7 @@ public static VictorSP armIntakeMotor = new VictorSP(5);
 /*------------------------
  * Encoders
  *-----------------------*/
-//-----------------------
+// -----------------------
 // Wiring diagram
 // -----------------------
 // Orange - Red PWM 1
@@ -104,7 +101,7 @@ public static IRSensor armIR = new IRSensor(2);
 
 public static Relay ringLightRelay = new Relay(0);
 
-//------------------------------------
+// ------------------------------------
 // Compressor class - runs the compressor
 // with a single relay
 // ------------------------------------
@@ -113,11 +110,9 @@ public static Compressor compressor = new Compressor();
 /*------------------------
  * Switches
  *-----------------------*/
-public static SingleThrowSwitch autonomousEnabled =
-        new SingleThrowSwitch(
-                19);
-public static SingleThrowSwitch shootHigh =
-        new SingleThrowSwitch(8);
+public static SingleThrowSwitch autonomousEnabled = new SingleThrowSwitch(
+        19);
+public static SingleThrowSwitch shootHigh = new SingleThrowSwitch(8);
 public static SingleThrowSwitch shootLow = new SingleThrowSwitch(7);
 // Shoot high/low switch
 public static DoubleThrowSwitch noShoot = new DoubleThrowSwitch(
@@ -127,9 +122,8 @@ public static DoubleThrowSwitch noShoot = new DoubleThrowSwitch(
  * Displays the starting position.
  * Position 0 on the switch corresponds to position 1, 1 to 2, etc.
  */
-public static SixPositionSwitch startingPositionDial =
-        new SixPositionSwitch(
-                14, 15, 16, 17, 18, 21, true);
+public static SixPositionSwitch startingPositionDial = new SixPositionSwitch(
+        14, 15, 16, 17, 18, 21, true);
 
 /*------------------------
  * Solenoids
@@ -138,20 +132,17 @@ public static Solenoid catapultSolenoid0 = new Solenoid(0);
 public static Solenoid catapultSolenoid1 = new Solenoid(1);
 public static Solenoid catapultSolenoid2 = new Solenoid(2);
 
-public static DoubleSolenoid cameraSolenoid =
-        new DoubleSolenoid(3, 4);
+public static DoubleSolenoid cameraSolenoid = new DoubleSolenoid(3, 4);
 
 /*------------------------
  * Potentiometers
  *-----------------------*/
-public static RobotPotentiometer delayPot =
-        new RobotPotentiometer(1,
-                DELAY_POT_DEGREES);
+public static RobotPotentiometer delayPot = new RobotPotentiometer(1,
+        DELAY_POT_DEGREES);
 // transducer (written as a potentiometer)
 // set to 50 to hit 100 psi accurately
-public static RobotPotentiometer transducer =
-        new RobotPotentiometer(2,
-                TRANSDUCER_MAX_VALUE);
+public static RobotPotentiometer transducer = new RobotPotentiometer(2,
+        TRANSDUCER_MAX_VALUE);
 // to be used with the manipulator arm
 public static RobotPotentiometer armPot = new RobotPotentiometer(3,
         ARM_POT_MAX_VALUE);
@@ -167,7 +158,8 @@ public static UltraSonic ultrasonic = new UltraSonic(4,
  *-----------------------*/
 public static KilroyCamera axisCamera = new KilroyCamera(true);
 
-public static ImageProcessing goalVision = new ImageProcessing(axisCamera);
+public static ImageProcessing goalVision = new ImageProcessing(
+        axisCamera);
 
 /*------------------------
  * Driver Station
@@ -177,4 +169,4 @@ public static final DriverStation driverStation = DriverStation
 
 
 }
-//getHeather(someFood);
+// getHeather(someFood);
